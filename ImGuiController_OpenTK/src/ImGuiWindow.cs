@@ -83,7 +83,7 @@ public class ImGuiWindow : GameWindow, IImGuiWindow
         MouseWheel += controller.OnMouseScroll;
         TextInput += controller.OnTextInput;
 
-        SetMouseButton(MouseButton.Left, true);
+        //SetMouseButton(MouseButton.Left, true);
     }
     public void OnRender(float deltaSeconds)
     {

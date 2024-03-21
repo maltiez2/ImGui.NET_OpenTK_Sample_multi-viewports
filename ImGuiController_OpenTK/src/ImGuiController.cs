@@ -149,12 +149,12 @@ public class ImGuiController : IDisposable
 
     protected static void SetPerFrameImGuiData(float deltaSeconds, NativeWindow window)
     {
-        MonitorInfo monitor = Monitors.GetMonitorFromWindow(window);
+        //MonitorInfo monitor = Monitors.GetMonitorFromWindow(window);
         ImGuiIOPtr io = ImGui.GetIO();
         io.DisplaySize = new System.Numerics.Vector2(
-                window.ClientSize.X / monitor.HorizontalScale,
-                window.ClientSize.Y / monitor.VerticalScale);
-        io.DisplayFramebufferScale = new System.Numerics.Vector2(monitor.HorizontalScale, monitor.VerticalScale);
+                window.ClientSize.X / 1,
+                window.ClientSize.Y / 1);
+        io.DisplayFramebufferScale = new System.Numerics.Vector2(1, 1);
         io.DeltaTime = deltaSeconds;
     }
     protected static void UpdateMonitors()
