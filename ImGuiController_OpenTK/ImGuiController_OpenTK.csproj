@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <BindingsDir>$(ProjectDir)\lib\bindings</BindingsDir>
   </PropertyGroup>
@@ -16,7 +16,38 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="OpenTK" Version="4.8.1" />
+    <Reference Include="OpenTK.Compute">
+      <HintPath>$(VINTAGE_STORY)\Lib\OpenTK.Compute.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OpenTK.Core">
+      <HintPath>$(VINTAGE_STORY)\Lib\OpenTK.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OpenTK.Graphics">
+      <HintPath>$(VINTAGE_STORY)\Lib\OpenTK.Graphics.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OpenTK.Input">
+      <HintPath>$(VINTAGE_STORY)\Lib\OpenTK.Input.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OpenTK.Mathematics">
+      <HintPath>$(VINTAGE_STORY)\Lib\OpenTK.Mathematics.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OpenTK.Windowing.Common">
+      <HintPath>$(VINTAGE_STORY)\Lib\OpenTK.Windowing.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OpenTK.Windowing.Desktop">
+      <HintPath>$(VINTAGE_STORY)\Lib\OpenTK.Windowing.Desktop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OpenTK.Windowing.GraphicsLibraryFramework">
+      <HintPath>$(VINTAGE_STORY)\Lib\OpenTK.Windowing.GraphicsLibraryFramework.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
