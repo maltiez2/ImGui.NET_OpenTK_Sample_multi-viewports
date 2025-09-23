@@ -69,6 +69,8 @@ public class ImGuiController : IDisposable
         }
     }
 
+    public bool CanUpdateInputs { get; set; } = true;
+
     protected readonly ImGuiWindowsManager mWindowsManager;
     protected readonly IImGuiWindow mMainWindow;
     protected readonly ImGuiViewportPtr mMainViewport;
@@ -242,6 +244,13 @@ public class ImGuiController : IDisposable
 
     protected virtual void UpdateImGuiInput(bool mainWindowIncluded = true)
     {
+        if (!CanUpdateInputs)
+        {
+            PressedCharacters.Clear();
+            ImGui.GetIO().MousePos = new(0, 0);
+            return;
+        }
+        
         ImGuiIOPtr io = ImGui.GetIO();
 
         CollectKeysInputs(mainWindowIncluded);
