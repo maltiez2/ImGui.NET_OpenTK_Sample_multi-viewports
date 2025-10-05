@@ -2,7 +2,6 @@
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Desktop;
-using OpenTK.Windowing.GraphicsLibraryFramework;
 using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
@@ -176,7 +175,7 @@ public sealed class ImGuiRenderer : IImGuiRenderer
         GL.BindTexture(TextureTarget.Texture2D, prevTexture2D);
         GL.ActiveTexture((TextureUnit)prevActiveTexture);
 
-        io.Fonts.SetTexID((IntPtr)mFontTexture);
+        io.Fonts.SetTexID(mFontTexture);
 
         io.Fonts.ClearTexData();
     }

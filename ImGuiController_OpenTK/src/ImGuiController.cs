@@ -247,7 +247,6 @@ public class ImGuiController : IDisposable
         if (!CanUpdateInputs)
         {
             PressedCharacters.Clear();
-            ImGui.GetIO().MousePos = new(0, 0);
             return;
         }
         
