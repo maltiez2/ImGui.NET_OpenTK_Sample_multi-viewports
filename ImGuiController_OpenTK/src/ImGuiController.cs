@@ -15,10 +15,10 @@ namespace ImGuiController_OpenTK;
 
 public class ImGuiController : IDisposable
 {
-    public ImGuiController(IWindow mainWindow)
+    public ImGuiController(IWindow mainWindow, bool multiViewport = true)
     {
         SetImGuiContext();
-        SetImGuiParameters();
+        SetImGuiParameters(multiViewport);
 
         ImGuiPlatformIOPtr platformIO = ImGui.GetPlatformIO();
         mMainViewport = platformIO.Viewports[0];
@@ -106,13 +106,16 @@ public class ImGuiController : IDisposable
     {
         return new ImGuiWindow(viewport, mMainWindow.Native, mMainImGuiRenderer, this);
     }
-    private void SetImGuiParameters()
+    private void SetImGuiParameters(bool multiViewport = true)
     {
         ImGuiIOPtr io = ImGui.GetIO();
         LoadFonts();
-        io.BackendFlags |= ImGuiBackendFlags.RendererHasVtxOffset;
-        io.ConfigFlags |= ImGuiConfigFlags.DockingEnable;
-        io.ConfigFlags |= ImGuiConfigFlags.ViewportsEnable;
+        if (multiViewport)
+        {
+            io.BackendFlags |= ImGuiBackendFlags.RendererHasVtxOffset;
+            io.ConfigFlags |= ImGuiConfigFlags.DockingEnable;
+            io.ConfigFlags |= ImGuiConfigFlags.ViewportsEnable;
+        }
 
         io.BackendFlags |= ImGuiBackendFlags.HasMouseCursors;
         io.BackendFlags |= ImGuiBackendFlags.HasSetMousePos;
