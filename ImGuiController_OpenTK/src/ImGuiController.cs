@@ -112,9 +112,9 @@ public class ImGuiController : IDisposable
         LoadFonts();
         if (multiViewport)
         {
+            io.ConfigFlags |= ImGuiConfigFlags.ViewportsEnable;
             io.BackendFlags |= ImGuiBackendFlags.RendererHasVtxOffset;
             io.ConfigFlags |= ImGuiConfigFlags.DockingEnable;
-            io.ConfigFlags |= ImGuiConfigFlags.ViewportsEnable;
         }
 
         io.BackendFlags |= ImGuiBackendFlags.HasMouseCursors;
